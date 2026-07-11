@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Menu, Mail, GraduationCap, CheckCircle2, ChevronRight, Plus, Building, ChefHat, Plane, Calendar, Globe, Quote, Lightbulb, Target, Users, BookOpen } from 'lucide-react';
+import { Menu, Mail, GraduationCap, CheckCircle2, ChevronRight, Plus, Building, ChefHat, Plane, Calendar, Globe, Quote, Lightbulb, Target, Users, BookOpen, MapPin, Phone, ArrowUp, Headphones } from 'lucide-react';
 
 export default function App() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -158,15 +158,15 @@ export default function App() {
             {[
               {
                 name: "All India Council for Technical Education (AICTE)",
-                logo: "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/All_India_Council_for_Technical_Education_logo.png/220px-All_India_Council_for_Technical_Education_logo.png"
+                logo: "https://i.postimg.cc/VSzVDbxT/image-28.png"
               },
               {
                 name: "Bangalore University (BU)",
-                logo: "https://upload.wikimedia.org/wikipedia/en/5/52/Bangalore_University_logo.png"
+                logo: "https://i.postimg.cc/sB3NwZkk/image-30.png"
               },
               {
                 name: "National Assessment and Accreditation Council (NAAC)",
-                logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/63/National_Assessment_and_Accreditation_Council_logo.png/220px-National_Assessment_and_Accreditation_Council_logo.png"
+                logo: "https://i.postimg.cc/NLBJsr90/image-29.png"
               }
             ].map((acc, index) => (
               <motion.div
@@ -175,9 +175,9 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="w-56 h-36 md:w-[240px] md:h-[150px] bg-white border border-rose-100/60 rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] flex items-center justify-center p-6 hover:shadow-lg transition-shadow duration-300"
+                className="w-64 h-40 md:w-[280px] md:h-[180px] bg-white border border-rose-100/60 rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] flex items-center justify-center p-3 hover:shadow-lg transition-shadow duration-300"
               >
-                <img src={acc.logo} alt={acc.name} className="w-full h-full object-contain mix-blend-multiply" title={acc.name} />
+                <img src={acc.logo} alt={acc.name} className="w-full h-full object-contain mix-blend-multiply scale-110" title={acc.name} />
               </motion.div>
             ))}
           </div>
@@ -856,6 +856,92 @@ export default function App() {
           </form>
         </div>
       </section>
+      {/* Footer Section */}
+      <footer className="bg-[#111827] text-gray-300 py-16 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
+            
+            {/* Logo and Description */}
+            <div className="lg:col-span-2 pr-0 lg:pr-12">
+              <div className="bg-white inline-block p-4 rounded-xl mb-6 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-[#001f3f] rounded-lg flex items-center justify-center">
+                    <GraduationCap className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h2 className="text-[#001f3f] font-serif text-2xl font-bold leading-none tracking-tight">AMC</h2>
+                    <p className="text-[#f5a623] text-[10px] font-bold tracking-widest uppercase">Degree College</p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-gray-400 text-[15px] leading-relaxed mb-6">
+                AMC Engineering College is committed to creating deep technical competency, high research productivity, and robust industry integrations for engineering professionals.
+              </p>
+              <p className="text-[#f5a623] text-sm font-bold tracking-wider uppercase">
+                APPROVED BY AICTE | AFFILIATED TO VTU BENGALURU
+              </p>
+            </div>
+
+            {/* Curricular Fastpaths */}
+            <div>
+              <h3 className="text-[#f5a623] font-bold text-sm tracking-widest uppercase mb-6">
+                Curricular Fastpaths
+              </h3>
+              <ul className="space-y-4 text-sm text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">Overview</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Placements</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Programs</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Why AMC</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Student Work</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Campus Life</a></li>
+              </ul>
+            </div>
+
+            {/* Campus Location */}
+            <div>
+              <h3 className="text-[#f5a623] font-bold text-sm tracking-widest uppercase mb-6">
+                AMC Campus Location
+              </h3>
+              <ul className="space-y-5 text-sm text-gray-400">
+                <li className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-[#f5a623] shrink-0 mt-0.5" />
+                  <span className="leading-relaxed">AMC Campus, 18th K.M. Bannerghatta Road, Bengaluru – 560083</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Phone className="w-5 h-5 text-[#f5a623] shrink-0" />
+                  <span>+91 99020 44114</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Mail className="w-5 h-5 text-[#f5a623] shrink-0" />
+                  <span>admissions@amceducation.in</span>
+                </li>
+              </ul>
+            </div>
+            
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+              <span>© 2026 AMC Engineering College Bengaluru. All rights reserved.</span>
+              <span className="hidden sm:inline">|</span>
+              <span>Design and Developed By Mediagarh</span>
+            </div>
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex items-center gap-2 font-bold tracking-widest uppercase hover:text-white transition-colors"
+            >
+              BACK TO TOP <ArrowUp className="w-3 h-3" />
+            </button>
+          </div>
+        </div>
+      </footer>
+
+      {/* Floating Admissions Button */}
+      <button className="fixed bottom-8 right-8 z-50 bg-[#f5a623] hover:bg-[#e09612] text-[#001f3f] font-bold text-sm tracking-wide py-3.5 px-6 rounded-full shadow-[0_4px_20px_rgba(245,166,35,0.4)] hover:shadow-[0_8px_30px_rgba(245,166,35,0.5)] hover:-translate-y-1 transition-all flex items-center gap-3">
+        <Headphones className="w-5 h-5" />
+        ADMISSIONS HELP
+      </button>
     </div>
   );
 }
