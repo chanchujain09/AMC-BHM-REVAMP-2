@@ -1,0 +1,6 @@
+{
+  "name": "AMC BHM College Landing Page",
+  "description": "Educational landing page hero section for AMC Degree College - Bachelor of Hotel Management (BHM).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
