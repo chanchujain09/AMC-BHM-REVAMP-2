@@ -776,7 +776,7 @@ export default function App() {
             />
 
             <ProgramCard
-              imageSrc="https://images.unsplash.com/photo-1581010866487-f2730c468b5e?auto=format&fit=crop&q=80&w=800"
+              imageSrc="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800"
               title="What You Learn"
               description="Acquire hands-on technical skills, modern hotel management workflows, and robust communication abilities."
               bullets={[
