@@ -417,8 +417,7 @@ export default function App() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="w-full lg:w-5/12 xl:w-[38%] max-w-md mx-auto lg:mx-0"
             >
-              <div className="bg-[#161D4A]/40 backdrop-blur-xl rounded-[24px] shadow-[0_24px_50px_rgba(0,0,0,0.3)] p-8 relative overflow-hidden border border-white/10 hover:border-white/15 transition-all duration-500">
-                <div className="absolute top-0 left-0 w-1.5 h-full bg-[#FED304]" />
+              <div className="bg-[#161D4A]/40 backdrop-blur-xl rounded-[24px] shadow-[0_24px_50px_rgba(0,0,0,0.3)] p-8 relative overflow-hidden transition-all duration-500">
                 
                 <div className="mb-6">
                   <h3 className="text-2xl lg:text-[25px] font-extrabold text-white tracking-tight mb-2">Free Hospitality Career Counseling Session</h3>
@@ -1173,102 +1172,85 @@ export default function App() {
             const activeIdx = activeTestimonial % list.length;
 
             return (
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div className="lg:col-span-7 relative px-2">
-                  <div className="relative overflow-hidden rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.3)]">
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={activeIdx}
-                        initial={{ opacity: 0, x: 15 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -15 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="grid grid-cols-1 md:grid-cols-12 items-center p-8 md:p-12 lg:p-14 gap-8 md:gap-12"
-                      >
-                        <div className="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left">
-                          <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-[#FED304]/50 p-1 mb-6 bg-white/5 shadow-md">
-                            <img
-                              src={list[activeIdx].image}
-                              alt={list[activeIdx].name}
-                              className="w-full h-full object-cover rounded-full filter brightness-[1.04] saturate-[0.9] contrast-[1.01]"
-                              referrerPolicy="no-referrer"
-                            />
-                          </div>
-
-                          <div className="flex gap-1 mb-4">
-                            {[...Array(list[activeIdx].rating)].map((_, starIdx) => (
-                              <Star key={starIdx} className="w-5 h-5 fill-[#FED304] text-[#FED304]" />
-                            ))}
-                          </div>
-
-                          <h3 className="text-xl md:text-2xl font-black text-white tracking-tight mb-1">
-                            {list[activeIdx].name}
-                          </h3>
-                          <p className="text-[#FED304] text-xs font-bold uppercase tracking-widest">
-                            {list[activeIdx].course}
-                          </p>
+              <div className="max-w-4xl mx-auto relative px-2">
+                <div className="relative overflow-hidden rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.3)]">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeIdx}
+                      initial={{ opacity: 0, x: 15 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -15 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="grid grid-cols-1 md:grid-cols-12 items-center p-8 md:p-12 lg:p-14 gap-8 md:gap-12"
+                    >
+                      <div className="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left">
+                        <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-[#FED304]/50 p-1 mb-6 bg-white/5 shadow-md">
+                          <img
+                            src={list[activeIdx].image}
+                            alt={list[activeIdx].name}
+                            className="w-full h-full object-cover rounded-full filter brightness-[1.04] saturate-[0.9] contrast-[1.01]"
+                            referrerPolicy="no-referrer"
+                          />
                         </div>
 
-                        <div className="md:col-span-7 flex flex-col justify-center relative">
-                          <Quote className="w-14 h-14 text-[#FED304]/10 absolute -top-10 -left-6 pointer-events-none rotate-180 hidden md:block" />
-                          <blockquote className="text-gray-100 text-base md:text-lg lg:text-xl font-semibold leading-relaxed italic relative z-10">
-                            "{list[activeIdx].quote}"
-                          </blockquote>
+                        <div className="flex gap-1 mb-4">
+                          {[...Array(list[activeIdx].rating)].map((_, starIdx) => (
+                            <Star key={starIdx} className="w-5 h-5 fill-[#FED304] text-[#FED304]" />
+                          ))}
                         </div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
 
-                  {/* Controls */}
-                  <div className="flex items-center justify-between mt-10">
-                    <div className="flex gap-2.5">
-                      {list.map((_, dotIdx) => (
-                        <button
-                          key={dotIdx}
-                          onClick={() => setActiveTestimonial(dotIdx)}
-                          className={`h-2.5 rounded-full transition-all duration-300 ${
-                            activeIdx === dotIdx ? 'w-8 bg-[#FED304]' : 'w-2.5 bg-white/20 hover:bg-white/40'
-                          }`}
-                          aria-label={`Go to testimonial slide ${dotIdx + 1}`}
-                        />
-                      ))}
-                    </div>
+                        <h3 className="text-xl md:text-2xl font-black text-white tracking-tight mb-1">
+                          {list[activeIdx].name}
+                        </h3>
+                        <p className="text-[#FED304] text-xs font-bold uppercase tracking-widest">
+                          {list[activeIdx].course}
+                        </p>
+                      </div>
 
-                    <div className="flex gap-3">
-                      <button
-                        onClick={() => {
-                          setActiveTestimonial((prev) => (prev === 0 ? list.length - 1 : prev - 1));
-                        }}
-                        className="w-12 h-12 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white flex items-center justify-center transition-all duration-200"
-                        aria-label="Previous testimonial"
-                      >
-                        <ChevronLeft className="w-5 h-5" />
-                      </button>
-                      <button
-                        onClick={() => {
-                          setActiveTestimonial((prev) => (prev === list.length - 1 ? 0 : prev + 1));
-                        }}
-                        className="w-12 h-12 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white flex items-center justify-center transition-all duration-200"
-                        aria-label="Next testimonial"
-                      >
-                        <ChevronRight className="w-5 h-5" />
-                      </button>
-                    </div>
-                  </div>
+                      <div className="md:col-span-7 flex flex-col justify-center relative">
+                        <Quote className="w-14 h-14 text-[#FED304]/10 absolute -top-10 -left-6 pointer-events-none rotate-180 hidden md:block" />
+                        <blockquote className="text-gray-100 text-base md:text-lg lg:text-xl font-semibold leading-relaxed italic relative z-10">
+                          "{list[activeIdx].quote}"
+                        </blockquote>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
 
-                <div className="lg:col-span-5 relative h-[440px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group hidden lg:block">
-                  <img 
-                    src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800" 
-                    alt="AMC Convocation Excellence" 
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[1.03]" 
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#161D4A] via-[#161D4A]/40 to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-8">
-                    <span className="text-[10px] font-extrabold text-[#FED304] uppercase tracking-widest bg-white/10 px-2.5 py-1 rounded mb-3 inline-block">Graduation Success</span>
-                    <h4 className="text-xl font-bold text-white tracking-tight leading-tight">Elite BHM Placement Paths</h4>
-                    <p className="text-white/85 text-xs font-semibold mt-1">Celebrating our annual batch of world-class hospitality professionals ready for global success.</p>
+                {/* Controls */}
+                <div className="flex items-center justify-between mt-10">
+                  <div className="flex gap-2.5">
+                    {list.map((_, dotIdx) => (
+                      <button
+                        key={dotIdx}
+                        onClick={() => setActiveTestimonial(dotIdx)}
+                        className={`h-2.5 rounded-full transition-all duration-300 ${
+                          activeIdx === dotIdx ? 'w-8 bg-[#FED304]' : 'w-2.5 bg-white/20 hover:bg-white/40'
+                        }`}
+                        aria-label={`Go to testimonial slide ${dotIdx + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => {
+                        setActiveTestimonial((prev) => (prev === 0 ? list.length - 1 : prev - 1));
+                      }}
+                      className="w-12 h-12 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white flex items-center justify-center transition-all duration-200"
+                      aria-label="Previous testimonial"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button
+                      onClick={() => {
+                        setActiveTestimonial((prev) => (prev === list.length - 1 ? 0 : prev + 1));
+                      }}
+                      className="w-12 h-12 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white flex items-center justify-center transition-all duration-200"
+                      aria-label="Next testimonial"
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
                   </div>
                 </div>
               </div>
@@ -1680,15 +1662,12 @@ export default function App() {
             {/* Logo and Description */}
             <div className="md:col-span-12 lg:col-span-5 xl:col-span-5 pr-0 lg:pr-16">
               <div className="bg-white inline-block p-4 rounded-2xl mb-8 shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-[#161D4A] rounded-xl flex items-center justify-center shadow-md">
-                    <GraduationCap className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h2 className="text-[#161D4A] font-black text-2xl leading-none tracking-tight">AMC</h2>
-                    <p className="text-[#FED304] text-[10px] font-black tracking-widest uppercase mt-0.5">Degree College</p>
-                  </div>
-                </div>
+                <img 
+                  src="https://static.wixstatic.com/media/174df9_bfc0c62f53bf48b2a6941250cfbf8a02~mv2.png/v1/fill/w_476,h_248,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/174df9_bfc0c62f53bf48b2a6941250cfbf8a02~mv2.png" 
+                  alt="AMC Degree College Logo" 
+                  className="h-12 md:h-14 object-contain"
+                  referrerPolicy="no-referrer"
+                />
               </div>
               <p className="text-gray-400 text-[14.5px] leading-relaxed mb-8 font-medium">
                 AMC Degree College is committed to creating deep hospitality competencies, high practical productivity, and robust industry integrations for professional growth.
