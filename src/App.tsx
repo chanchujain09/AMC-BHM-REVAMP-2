@@ -531,7 +531,7 @@ export default function App() {
                 <div className="h-0.5 w-8 bg-[#FED304] rounded-full" />
               </div>
               <h3 className="text-5xl lg:text-6xl font-black text-[#161D4A] mb-3 tracking-tight">
-                <span className="text-[#FED304] drop-shadow-[0_1.5px_2px_rgba(22,29,74,0.15)]">
+                <span className="text-[#1c224d] drop-shadow-[0_1.5px_2px_rgba(22,29,74,0.15)]">
                   <CountUp end={20000} suffix="+" />
                 </span>
               </h3>
@@ -548,7 +548,7 @@ export default function App() {
                 <div className="h-0.5 w-8 bg-[#FED304] rounded-full" />
               </div>
               <h3 className="text-5xl lg:text-6xl font-black text-[#161D4A] mb-3 tracking-tight font-sans">
-                <span className="text-[#FED304] drop-shadow-[0_1.5px_2px_rgba(22,29,74,0.15)]">
+                <span className="text-[#1c224d] drop-shadow-[0_1.5px_2px_rgba(22,29,74,0.15)]">
                   <CountUp end={100} suffix="%" />
                 </span>
               </h3>
@@ -565,7 +565,7 @@ export default function App() {
                 <div className="h-0.5 w-8 bg-[#FED304] rounded-full" />
               </div>
               <h3 className="text-5xl lg:text-6xl font-black text-[#161D4A] mb-3 tracking-tight font-sans">
-                <span className="text-[#FED304] drop-shadow-[0_1.5px_2px_rgba(22,29,74,0.15)]">
+                <span className="text-[#1c224d] drop-shadow-[0_1.5px_2px_rgba(22,29,74,0.15)]">
                   <CountUp end={50} suffix="+" />
                 </span>
               </h3>
