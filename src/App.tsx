@@ -67,16 +67,18 @@ interface ProgramCardProps {
   description: string;
   bullets: string[];
   imageSrc: string;
+  imageContainerClass?: string;
+  imgClass?: string;
 }
 
-function ProgramCard({ title, description, bullets, imageSrc }: ProgramCardProps) {
+function ProgramCard({ title, description, bullets, imageSrc, imageContainerClass = "aspect-[4/3]", imgClass = "object-cover object-center" }: ProgramCardProps) {
   return (
     <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_45px_rgba(22,29,74,0.08)] border border-gray-100/90 overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-1.5 group">
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-50 shrink-0">
+      <div className={`relative w-full overflow-hidden bg-gray-50 shrink-0 ${imageContainerClass}`}>
         <img
           src={imageSrc}
           alt={title}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[1.04] saturate-[0.9] contrast-[1.01]"
+          className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[1.04] saturate-[0.9] contrast-[1.01] ${imgClass}`}
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#161D4A]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -198,6 +200,38 @@ export default function App() {
     }, 6000);
     return () => clearInterval(interval);
   }, []);
+
+  const [activeExperience, setActiveExperience] = useState(0);
+
+  const experiencesList = [
+    {
+      title: "Kitchen and culinary training",
+      desc: "Master the art of culinary science in our world-class kitchen training labs. From basic techniques to advanced gastronomy.",
+      img: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      title: "Restaurant and service simulations",
+      desc: "Experience real-world dining scenarios in our F&B fine dining service lab, perfecting your guest interaction and service standards.",
+      img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      title: "Hotel operations practice",
+      desc: "Learn the intricacies of hotel management with our fully equipped Front Office Reception and Boutique Suite Operations labs.",
+      img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      title: "Industrial training and internships",
+      desc: "Bridge the gap between theory and practice through comprehensive industrial training and internships at top hospitality brands.",
+      img: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80&w=800"
+    }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveExperience((prev) => (prev + 1) % experiencesList.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [experiencesList.length]);
 
   return (
     <div className="min-h-screen font-sans selection:bg-[#FED304] selection:text-[#161D4A] bg-white flex flex-col">
@@ -512,7 +546,7 @@ export default function App() {
             </div>
             <div className="lg:col-span-5 h-[280px] rounded-3xl overflow-hidden shadow-md border border-gray-100 relative group">
               <img 
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800" 
+                src="https://i.postimg.cc/mhxxPLcB/smiling-female-business-colleagues-examining-data-touchpad.jpg" 
                 alt="Hospitality Placements Training" 
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[1.03] saturate-[0.95]" 
                 referrerPolicy="no-referrer"
@@ -762,7 +796,8 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-16 md:mb-20 items-stretch">
             <ProgramCard
-              imageSrc="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&q=80&w=800"
+              imageSrc="https://i.postimg.cc/yxVrJDjD/Chat-GPT-Image-Jul-15-2026-03-16-52-PM.png"
+              imgClass="w-full h-full object-cover object-top"
               title="Core Areas of Study"
               description="Master the fundamental pillars of hospitality operations, administration, and modern management methodologies."
               bullets={[
@@ -775,7 +810,7 @@ export default function App() {
             />
 
             <ProgramCard
-              imageSrc="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800"
+              imageSrc="https://academyoftaxlaw.com/wp-content/uploads/2024/10/hyatt.jpg"
               title="What You Learn"
               description="Acquire hands-on technical skills, modern hotel management workflows, and robust communication abilities."
               bullets={[
@@ -787,7 +822,7 @@ export default function App() {
             />
 
             <ProgramCard
-              imageSrc="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=800"
+              imageSrc="https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2016/09/24/Photos/Processed/mariotthotel-ku4D--621x414@LiveMint.JPG"
               title="Career Paths"
               description="Unlock a world-class global career spanning elite hotel groups, culinary venues, and premium corporate events."
               bullets={[
@@ -912,84 +947,99 @@ export default function App() {
           transition={{ duration: 0.6 }}
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch mb-16">
-            {/* Large Image Column */}
-            <div className="lg:col-span-5 relative min-h-[350px] lg:min-h-[500px] rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.03)] border border-gray-100 group">
-              <img 
-                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800" 
-                alt="Student Experience" 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[1.04] saturate-[0.9] contrast-[1.01]" 
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#161D4A]/40 via-transparent to-transparent" />
-            </div>
-            
-            {/* White Content Card Column */}
-            <div className="lg:col-span-7 bg-white rounded-3xl p-8 md:p-12 border border-gray-100/90 shadow-[0_12px_45px_rgba(22,29,74,0.03)] flex flex-col justify-between">
-              <div>
-                <span className="text-[10px] font-extrabold text-[#161D4A] uppercase tracking-widest bg-[#FED304] px-2.5 py-1 rounded">Experiential Learning</span>
-                <h3 className="text-2xl md:text-3xl font-bold text-[#161D4A] mt-4 mb-6 tracking-tight">
-                  From Training to Real Hospitality Skills
-                </h3>
-                
-                <p className="text-[#5B6475] font-semibold mb-6 text-sm md:text-[15px] leading-relaxed">
-                  Students at AMC Degree College gain practical exposure through:
-                </p>
-                
-                <ul className="space-y-4 mb-8">
-                  {[
-                    "Kitchen and culinary training",
-                    "Restaurant and service simulations",
-                    "Hotel operations practice",
-                    "Industrial training and internships"
-                  ].map((bullet, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm md:text-[15px] text-[#5B6475] font-semibold leading-relaxed">
-                      <CheckCircle2 className="w-5 h-5 text-[#161D4A] mt-0.5 shrink-0" />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="pt-6 border-t border-gray-100 flex flex-col gap-6">
-                <div className="p-5 rounded-2xl bg-gray-50/80 border-l-4 border-[#161D4A] relative">
-                  <Quote className="absolute right-4 top-4 w-10 h-10 text-[#161D4A]/5 pointer-events-none" />
-                  <p className="text-[#161D4A] text-[13.5px] md:text-sm font-semibold italic leading-relaxed relative z-10">
-                    "Every student graduates with practical hospitality skills, not just theoretical knowledge."
-                  </p>
-                </div>
-
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-xs font-extrabold uppercase tracking-widest text-[#161D4A] bg-[#161D4A]/5 hover:bg-[#161D4A]/10 border border-[#161D4A]/10 backdrop-blur-md rounded-xl transition-all duration-300 self-start hover:shadow-sm"
-                >
-                  <span>Explore Training Labs</span>
-                  <ChevronRight className="w-4 h-4 text-[#161D4A]" />
-                </a>
-              </div>
-            </div>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[11px] font-extrabold text-[#161D4A] uppercase tracking-widest bg-[#FED304] px-3.5 py-1.5 rounded-full inline-block mb-5">Experiential Learning</span>
+            <h2 className="text-3xl lg:text-[42px] lg:leading-[1.15] font-black text-[#161D4A] tracking-tight mb-6">
+              From Training to <span className="text-[#FED304] bg-clip-text">Real Hospitality Skills</span>
+            </h2>
+            <p className="text-[#5B6475] text-base md:text-lg leading-relaxed font-semibold">
+              Students at AMC Degree College gain practical exposure through world-class training facilities.
+            </p>
           </div>
 
-          {/* Lab Gallery */}
-          <div className="space-y-6">
-            <div className="text-left">
-              <h4 className="text-lg font-bold text-[#161D4A] uppercase tracking-wide">Projects & Lab Gallery</h4>
-              <p className="text-[#5B6475] text-xs font-semibold">Take a virtual tour of our world-class training facilities on Bannerghatta Road.</p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { title: "Culinary & Kitchen Training Lab", img: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=600" },
-                { title: "F&B Fine Dining Service Lab", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=600" },
-                { title: "Front Office Reception Lab", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" },
-                { title: "Boutique Suite Operations Lab", img: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80&w=600" }
-              ].map((lab, i) => (
-                <div key={i} className="relative h-64 rounded-2xl overflow-hidden group shadow-md">
-                  <img src={lab.img} alt={lab.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" referrerPolicy="no-referrer" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#161D4A] via-[#161D4A]/40 to-transparent flex items-end p-4">
-                    <p className="text-white text-xs font-bold leading-tight">{lab.title}</p>
-                  </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-8">
+            {/* Carousel Image Column */}
+            <div className="lg:col-span-6 relative min-h-[400px] lg:min-h-[500px] rounded-3xl overflow-hidden shadow-[0_24px_50px_rgba(22,29,74,0.1)] border border-gray-100 group">
+              <AnimatePresence mode="wait">
+                <motion.img 
+                  key={activeExperience}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  src={experiencesList[activeExperience].img} 
+                  alt={experiencesList[activeExperience].title} 
+                  className="absolute inset-0 w-full h-full object-cover filter brightness-[1.04] saturate-[0.9] contrast-[1.01]" 
+                  referrerPolicy="no-referrer"
+                />
+              </AnimatePresence>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#161D4A]/60 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 p-8 w-full z-10">
+                <div className="flex gap-2">
+                  {experiencesList.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveExperience(idx)}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        activeExperience === idx ? 'w-8 bg-[#FED304]' : 'w-4 bg-white/40 hover:bg-white/60'
+                      }`}
+                      aria-label={`Go to slide ${idx + 1}`}
+                    />
+                  ))}
                 </div>
-              ))}
+              </div>
+            </div>
+            
+            {/* Carousel Content Column */}
+            <div className="lg:col-span-6 flex flex-col justify-center">
+              <div className="flex gap-4 items-center mb-8">
+                <button
+                  onClick={() => setActiveExperience((prev) => (prev === 0 ? experiencesList.length - 1 : prev - 1))}
+                  className="w-12 h-12 rounded-xl bg-white border border-[#E7EBF3] text-[#161D4A] flex items-center justify-center hover:bg-[#F8F9FC] hover:border-[#161D4A]/20 transition-all shadow-sm"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={() => setActiveExperience((prev) => (prev === experiencesList.length - 1 ? 0 : prev + 1))}
+                  className="w-12 h-12 rounded-xl bg-white border border-[#E7EBF3] text-[#161D4A] flex items-center justify-center hover:bg-[#F8F9FC] hover:border-[#161D4A]/20 transition-all shadow-sm"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="relative min-h-[360px]">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeExperience}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-full h-full bg-white rounded-3xl p-8 md:p-10 border border-gray-100/90 shadow-[0_12px_45px_rgba(22,29,74,0.03)] flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="w-14 h-14 bg-[#161D4A]/5 rounded-2xl flex items-center justify-center mb-6 text-[#161D4A]">
+                        <CheckCircle2 className="w-7 h-7" />
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-bold text-[#161D4A] tracking-tight mb-4">
+                        {experiencesList[activeExperience].title}
+                      </h3>
+                      <p className="text-[#5B6475] font-semibold text-[15px] leading-relaxed">
+                        {experiencesList[activeExperience].desc}
+                      </p>
+                    </div>
+                    
+                    <div className="pt-6 border-t border-gray-100 mt-6">
+                      <div className="p-5 rounded-2xl bg-gray-50/80 border-l-4 border-[#161D4A] relative">
+                        <Quote className="absolute right-4 top-4 w-10 h-10 text-[#161D4A]/5 pointer-events-none" />
+                        <p className="text-[#161D4A] text-[13.5px] font-semibold italic leading-relaxed relative z-10">
+                          "Every student graduates with practical hospitality skills, not just theoretical knowledge."
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
           </div>
         </motion.div>
