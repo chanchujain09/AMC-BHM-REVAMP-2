@@ -207,7 +207,7 @@ export default function App() {
     {
       title: "Kitchen and culinary training",
       desc: "Master the art of culinary science in our world-class kitchen training labs. From basic techniques to advanced gastronomy.",
-      img: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800"
+      img: "https://i.postimg.cc/dQhzyx2v/Chat-GPT-Image-Jul-15-2026-04-05-05-PM.png"
     },
     {
       title: "Restaurant and service simulations",
@@ -546,7 +546,7 @@ export default function App() {
             </div>
             <div className="lg:col-span-5 h-[280px] rounded-3xl overflow-hidden shadow-md border border-gray-100 relative group">
               <img 
-                src="https://i.postimg.cc/mhxxPLcB/smiling-female-business-colleagues-examining-data-touchpad.jpg" 
+                src="https://i.postimg.cc/vmdQqdvm/Chat-GPT-Image-Jul-15-2026-04-11-54-PM.png" 
                 alt="Hospitality Placements Training" 
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[1.03] saturate-[0.95]" 
                 referrerPolicy="no-referrer"
@@ -731,8 +731,8 @@ export default function App() {
             {/* Left Column: Image Card */}
             <div className="lg:col-span-5 relative min-h-[350px] lg:min-h-[500px] rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.03)] border border-gray-100 group">
               <img 
-                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800" 
-                alt="Hospitality Careers" 
+                src="https://i.postimg.cc/zv9n4BBM/Chat-GPT-Image-Jul-15-2026-04-33-48-PM.png" 
+                alt="Student contemplating career choices" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[1.04] saturate-[0.9] contrast-[1.01]" 
                 referrerPolicy="no-referrer"
               />
@@ -877,22 +877,22 @@ export default function App() {
               {
                 title: "Industry-Focused Learning",
                 desc: "Curriculum aligned with modern hospitality management courses.",
-                img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800"
+                img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800"
               },
               {
                 title: "Practical Training",
                 desc: "Hands-on experience in kitchens, service, and hotel simulations.",
-                img: "https://images.unsplash.com/photo-1577106263724-2c8e03bfe9cf?auto=format&fit=crop&q=80&w=800"
+                img: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80&w=800"
               },
               {
                 title: "Internship Opportunities",
                 desc: "Exposure to real hotels and hospitality environments.",
-                img: "https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&q=80&w=800"
+                img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
               },
               {
                 title: "Career Support",
                 desc: "Focused on hospitality placements in Bangalore and global opportunities.",
-                img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800"
+                img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
               }
             ].map((item, index) => (
               <motion.div
@@ -1073,7 +1073,7 @@ export default function App() {
                 title: "Hotel Internships", 
                 desc: "Hotel internships and training.", 
                 icon: Target,
-                img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=500"
+                img: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&q=80&w=500"
               },
               { 
                 title: "Live Workshops", 
@@ -1139,8 +1139,8 @@ export default function App() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
             {[
-              { title: "Hotel Operations", desc: "Manage operational procedures, front desk logistics, and guest experience divisions.", icon: Building, img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=400" },
-              { title: "Chef / Culinary Roles", desc: "Command gourmet food production pipelines and coordinate custom culinary programs.", icon: ChefHat, img: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=400" },
+              { title: "Hotel Operations", desc: "Manage operational procedures, front desk logistics, and guest experience divisions.", icon: Building, img: "https://images.unsplash.com/photo-1517840901100-8179e982acb7?auto=format&fit=crop&q=80&w=400" },
+              { title: "Chef / Culinary Roles", desc: "Command gourmet food production pipelines and coordinate custom culinary programs.", icon: ChefHat, img: "https://i.postimg.cc/g2yTq9tr/Chat-GPT-Image-Jul-15-2026-04-44-48-PM.png" },
               { title: "Airlines & Cabin Crew", desc: "Elevate ground coordination, customized guest flight services, and premium airline relations.", icon: Plane, img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=400" },
               { title: "Event Management", desc: "Direct large scale business conferences, luxury social gatherings, and elite meetings.", icon: Calendar, img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=400" },
               { title: "Hospitality & Tourism", desc: "Lead destination tourism planning, premier cruise ship programs, and travel agencies.", icon: Globe, img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=400" }
